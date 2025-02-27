@@ -1,6 +1,5 @@
 # BEATBOX
 version = v3.0T
----
 ```
 NUUUG - PROGRAMMER
 SLIYA - UI/UX DESIGNER
