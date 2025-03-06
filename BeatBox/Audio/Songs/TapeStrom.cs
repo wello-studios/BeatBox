@@ -79,7 +79,7 @@ namespace BeatBox.Audio.Songs
             //CamRotationCurves   .Add(128, CubicBezierCurve.Constant(0));
             
             //CamScaleCurves      .Add(0, new CubicBezierCurve(0, 8, 30, 15, new Vector2(3, 3)));
-            CamScaleCurves      .Add(0, CubicBezierCurve.Constant(15));
+            CamScaleCurves      .Add(0, CubicBezierCurve.Constant(17.5));
         }
     }
 }

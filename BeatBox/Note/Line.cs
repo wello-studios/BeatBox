@@ -84,11 +84,11 @@ namespace BeatBox.Note
             if (lineNumber == 9) return;
             if (lineNumber == 8)
             {
-                if (cubeInputManager.pressDownKeyL)
+                if (cubeInputManager.pressDownKeyLeft)
                 {
                     //Debug.Log("Rotate to Left");
                 }
-                if (cubeInputManager.pressDownKeyR)
+                if (cubeInputManager.pressDownKeyRight)
                 {
                     //Debug.Log("Rotate to Right");
                 }

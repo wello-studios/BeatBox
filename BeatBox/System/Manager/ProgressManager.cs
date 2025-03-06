@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using BeatBox.Audio;
 using BeatBox.Enum;
@@ -31,6 +32,7 @@ namespace BeatBox.System.Manager
           public TextAnimation comboTextAnimation;
 
           public TMP_Text accurText;
+          public TMP_Text scoreText;
 
           public void Awake()
           {
@@ -39,13 +41,11 @@ namespace BeatBox.System.Manager
 
           private void Start()
           {
-               comboText          = UiManager.instance.ComboText;
-               comboAnimation     = comboText.GetComponent<Animator>();
-               comboTextAnimation = comboText.GetComponent<TextAnimation>();
-               
                comboText.text = "<size=10>C O M B O</size>\n0";
+               accurText.text = "00.00%";
+               scoreText.text = "0";
                
-               GetComponent<PreLoadManager>().FinishInitialization();
+               //GetComponent<PreLoadManager>().FinishInitialization();
           }
           
           public void AddJudge(JudgeType type)
@@ -80,6 +80,16 @@ namespace BeatBox.System.Manager
                                ((accS2.Length == 1) ? "0" + accS2 : accS2) + "%";
                
                accurText.text = accString;
+
+               var scoreWillAdded = scoreForJudge[(int)type];
+               score += scoreWillAdded;
+               string scoreT = ((int)Math.Floor(score)).ToString();
+
+               // 4 1  5 2  6 3
+               scoreText.text = 
+                    (scoreT.Length >= 4)?
+                         (scoreT.Substring(0, scoreT.Length - 3) + "," + scoreT.Substring(scoreT.Length - 3)) :
+                         scoreT;
           }
      }
 }

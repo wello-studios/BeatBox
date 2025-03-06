@@ -16,14 +16,14 @@ namespace BeatBox.System.Manager
         
         public void FinishInitialization()
         {
-            if (inited) return;
-            inited = true;
-            
-            gameManager.LoadedStuff++;
-            if (gameManager.needsToLoad == gameManager.LoadedStuff)
-            {
-                GameManager.instance.Resume();
-            }
+            // if (inited) return;
+            // inited = true;
+            //
+            // gameManager.LoadedStuff++;
+            // if (gameManager.needsToLoad == gameManager.LoadedStuff)
+            // {
+            //     GameManager.instance.Resume();
+            // }
         }
     }
 }

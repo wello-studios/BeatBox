@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Unity.Mathematics;
 
 namespace BeatBox.Cube
 {
@@ -18,24 +19,15 @@ namespace BeatBox.Cube
         private CubeInputManager  _cim;
         private CubeRotateManager _crm;
         
-        private int NormalizeLineNumber(int num) {
-            if (num < 0)
-            {
-                return NormalizeLineNumber(num + 8);
-            }
-            
-            if (num >= 8)
-            {
-                return NormalizeLineNumber(num - 8);
-            }
-
-            return num;
+        private int NormalizeLineNumber(int num)
+        {
+            return (int)math.fmod(num, 8);
         }
 
         private void SetRotateNumbers()
         {
-            if (_cim.pressDownKeyL) { rotateNumber = NormalizeLineNumber(rotateNumber+1); };
-            if (_cim.pressDownKeyR) { rotateNumber = NormalizeLineNumber(rotateNumber-1); };
+            if (_cim.pressDownKeyLeft) { rotateNumber = NormalizeLineNumber(rotateNumber+1); };
+            if (_cim.pressDownKeyRight) { rotateNumber = NormalizeLineNumber(rotateNumber-1); };
         }
         
         private void Awake()

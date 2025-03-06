@@ -44,7 +44,17 @@ namespace BeatBox.System.Manager
             _bgmChannel.setVolume(1.0f);
             _bgmChannel.setPaused(false);
         }
-
+        
+        public void PauseSong()
+        {
+            _bgmChannel.setPaused(true);
+        }
+        
+        public void ResumeSong()
+        {
+            _bgmChannel.setPaused(false);
+        }
+        
         void PlaySound(int id)
         {
             FMODUnity.RuntimeManager.CoreSystem.playSound(_sounds[id], _bgmChannelGroup, true, out _bgmChannel);
@@ -52,6 +62,8 @@ namespace BeatBox.System.Manager
             _bgmChannel.setVolume(5.0f);
             _bgmChannel.setPaused(false);
         }
+
+        
         
         private void Awake()
         {

@@ -7,6 +7,8 @@ namespace BeatBox.Cube
 {
     public class CubeInputManager : MonoBehaviour
     {
+        public bool isInputable = true;
+        
         [Header("InputActions")]
         public InputAction keyW;
         public InputAction keyA;
@@ -14,6 +16,8 @@ namespace BeatBox.Cube
         public InputAction keyD;
         public InputAction keyLarrow;
         public InputAction keyRarrow;
+        public InputAction keyUarrow;
+        public InputAction keyDarrow;
         public InputAction keyEnter; 
         public InputAction keySpace;
         public InputAction keyEscape;
@@ -23,8 +27,10 @@ namespace BeatBox.Cube
         public bool pressHoldKeyA;
         public bool pressHoldKeyS;
         public bool pressHoldKeyD;
-        public bool pressHoldKeyL;
-        public bool pressHoldKeyR;
+        public bool pressHoldKeyLeft;
+        public bool pressHoldKeyRight;
+        public bool pressHoldKeyUp;
+        public bool pressHoldKeyDown;
         public bool pressHoldKeySpace;
         public bool pressHoldKeyEscape;
         public bool pressHoldKeyEnter;
@@ -34,19 +40,23 @@ namespace BeatBox.Cube
         public bool pressDownKeyA;
         public bool pressDownKeyS;
         public bool pressDownKeyD;
-        public bool pressDownKeyL;
-        public bool pressDownKeyR;
+        public bool pressDownKeyLeft;
+        public bool pressDownKeyRight;
+        public bool pressDownKeyUp;
+        public bool pressDownKeyDown;
         public bool pressDownKeySpace;
         public bool pressDownKeyEscape;
         public bool pressDownKeyEnter;
         
-        [Header("KeyDown")]
+        [Header("KeyUp")]
         public bool pressUpKeyW;
         public bool pressUpKeyA;
         public bool pressUpKeyS;
         public bool pressUpKeyD;
-        public bool pressUpKeyL;
-        public bool pressUpKeyR;
+        public bool pressUpKeyLeft;
+        public bool pressUpKeyRight;
+        public bool pressUpKeyUp;
+        public bool pressUpKeyDown;
         public bool pressUpKeySpace;
         public bool pressUpKeyEscape;
         public bool pressUpKeyEnter;
@@ -55,8 +65,10 @@ namespace BeatBox.Cube
         public bool tempA      = false;
         public bool tempS      = false;
         public bool tempD      = false;
-        public bool tempL      = false;
-        public bool tempR      = false;
+        public bool tempLeft   = false;
+        public bool tempRight  = false;
+        public bool tempUp     = false;
+        public bool tempDown   = false;
         public bool tempSpace  = false;
         public bool tempEscape = false;
         public bool tempEnter  = false;
@@ -83,15 +95,25 @@ namespace BeatBox.Cube
             pressUpKeyD = (tempD && !pressHoldKeyD);
             tempD = pressHoldKeyD;
             
-            pressHoldKeyL = keyLarrow.inProgress;
-            pressDownKeyL = keyLarrow.triggered;
-            pressUpKeyL = (tempL && !pressHoldKeyL);
-            tempL = pressHoldKeyL;
+            pressHoldKeyLeft = keyLarrow.inProgress;
+            pressDownKeyLeft = keyLarrow.triggered;
+            pressUpKeyLeft = (tempLeft && !pressHoldKeyLeft);
+            tempLeft = pressHoldKeyLeft;
             
-            pressHoldKeyR = keyRarrow.inProgress;
-            pressDownKeyR = keyRarrow.triggered;
-            pressUpKeyR = (tempR && !pressHoldKeyR);
-            tempR = pressHoldKeyR;
+            pressHoldKeyRight = keyRarrow.inProgress;
+            pressDownKeyRight = keyRarrow.triggered;
+            pressUpKeyRight = (tempRight && !pressHoldKeyRight);
+            tempRight = pressHoldKeyRight;
+            
+            pressHoldKeyUp = keyUarrow.inProgress;
+            pressDownKeyUp = keyUarrow.triggered;
+            pressUpKeyUp = (tempUp && !pressHoldKeyUp);
+            tempUp = pressHoldKeyUp;
+            
+            pressHoldKeyDown = keyDarrow.inProgress;
+            pressDownKeyDown = keyDarrow.triggered;
+            pressUpKeyDown = (tempDown && !pressHoldKeyDown);
+            tempDown = pressHoldKeyDown;
             
             pressHoldKeySpace = keySpace.inProgress;
             pressDownKeySpace = keySpace.triggered;
@@ -117,6 +139,8 @@ namespace BeatBox.Cube
             keyS.Enable();
             keyLarrow.Enable();
             keyRarrow.Enable();
+            keyUarrow.Enable();
+            keyDarrow.Enable();
             keyEnter.Enable();
             keySpace.Enable();
             keyEscape.Enable();
@@ -129,6 +153,8 @@ namespace BeatBox.Cube
             keyS.Disable();
             keyLarrow.Disable();
             keyRarrow.Disable();
+            keyUarrow.Disable();
+            keyDarrow.Disable();
             keyEnter.Disable();
             keySpace.Disable();
             keyEscape.Disable();
@@ -136,6 +162,8 @@ namespace BeatBox.Cube
 
         private void Update()
         {
+            if (!isInputable) return;
+            
             GetInput();
         }
     }

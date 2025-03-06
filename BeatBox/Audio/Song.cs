@@ -102,12 +102,12 @@ namespace BeatBox.Audio
             _audioManager.inited = true;
             _gameManager.Resume();
             
-            _gameManager.GetComponent<PreLoadManager>().FinishInitialization();
-            _noteManager.GetComponent<PreLoadManager>().FinishInitialization();
-            _tickManager.GetComponent<PreLoadManager>().FinishInitialization();
-            _judgeManager.GetComponent<PreLoadManager>().FinishInitialization();
-            _audioManager.GetComponent<PreLoadManager>().FinishInitialization();
-            _cameraManager.GetComponent<PreLoadManager>().FinishInitialization();
+            // _gameManager.GetComponent<PreLoadManager>().FinishInitialization();
+            // _noteManager.GetComponent<PreLoadManager>().FinishInitialization();
+            // _tickManager.GetComponent<PreLoadManager>().FinishInitialization();
+            // _judgeManager.GetComponent<PreLoadManager>().FinishInitialization();
+            // _audioManager.GetComponent<PreLoadManager>().FinishInitialization();
+            // _cameraManager.GetComponent<PreLoadManager>().FinishInitialization();
         }
         
         private void Start()

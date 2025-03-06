@@ -65,11 +65,11 @@ namespace BeatBox.System.Manager
             
             // set score for each judge
             var progressManager = Progressmanager.instance;
-            progressManager.scoreForJudge[0] =         (progressManager.maxScore / noteCount);
-            progressManager.scoreForJudge[1] = (4/5) * (progressManager.maxScore / noteCount);
-            progressManager.scoreForJudge[2] = (3/5) * (progressManager.maxScore / noteCount);
-            progressManager.scoreForJudge[3] = (2/5) * (progressManager.maxScore / noteCount);
-            progressManager.scoreForJudge[4] = (1/5) * (progressManager.maxScore / noteCount);
+            progressManager.scoreForJudge[0] =           ((float)progressManager.maxScore / noteCount);
+            progressManager.scoreForJudge[1] = (4f/5f) * ((float)progressManager.maxScore / noteCount);
+            progressManager.scoreForJudge[2] = (3f/5f) * ((float)progressManager.maxScore / noteCount);
+            progressManager.scoreForJudge[3] = (2f/5f) * ((float)progressManager.maxScore / noteCount);
+            progressManager.scoreForJudge[4] = (1f/5f) * ((float)progressManager.maxScore / noteCount);
             progressManager.scoreForJudge[5] = 0;
                 
             // add Metronome
@@ -203,7 +203,7 @@ namespace BeatBox.System.Manager
                         var s = noteSpeed * Math.Pow(PlayerCustomDataManager.noteSpeedMult, 2);
                         var d = targetTick;
 
-                        var r = -((targetDistance-4) / (  b * s )) + d;
+                        var r = -((targetDistance-3.2f) / (  b * s )) + d;
                         
                         if ((tick - nTick) * s * b >= targetDistance)
                         {
