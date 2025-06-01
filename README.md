@@ -7,7 +7,7 @@ UI/UX 디자이너 - MUA
 스토리 작가 - GYUSAN, BORI
 게임 기획자 -
 음악 제작 - NUUUG, MUA
-인사과 - MUA
+인사-홍보과 - MUA
 ```
 ---
 비트박스 게임(v3.0T 이상)을 다운하려면,<br>
